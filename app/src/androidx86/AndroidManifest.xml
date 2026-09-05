@@ -19,19 +19,16 @@
      * HomeActivity is enabled by default
      * Certain activities and receivers are not exposed
 -->
-<manifest android:versionCode="208"
-          android:versionName="6.2.2"
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="com.farmerbb.taskbar">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
 
-    <permission android:name="com.farmerbb.taskbar.androidx86.START_STOP_TASKBAR"
+    <permission android:name="${applicationId}.START_STOP_TASKBAR"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="com.farmerbb.taskbar.androidx86.START_STOP_TASKBAR" />
+    <uses-permission android:name="${applicationId}.START_STOP_TASKBAR" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -395,7 +392,7 @@
 
         <receiver
             android:name=".receiver.ShowHideTaskbarReceiver"
-            android:permission="com.farmerbb.taskbar.androidx86.START_STOP_TASKBAR"
+            android:permission="${applicationId}.START_STOP_TASKBAR"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.farmerbb.taskbar.SHOW_HIDE_TASKBAR"/>
@@ -404,7 +401,7 @@
         <receiver
             android:name=".receiver.StartReceiver"
             android:enabled="true"
-            android:permission="com.farmerbb.taskbar.androidx86.START_STOP_TASKBAR"
+            android:permission="${applicationId}.START_STOP_TASKBAR"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.farmerbb.taskbar.START"/>
@@ -413,7 +410,7 @@
         <receiver
             android:name=".receiver.QuitReceiver"
             android:enabled="true"
-            android:permission="com.farmerbb.taskbar.androidx86.START_STOP_TASKBAR"
+            android:permission="${applicationId}.START_STOP_TASKBAR"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.farmerbb.taskbar.QUIT"/>
@@ -446,7 +443,7 @@
         </receiver>
         <receiver
             android:name=".receiver.ToggleFreeformModeReceiver"
-            android:permission="com.farmerbb.taskbar.androidx86.START_STOP_TASKBAR"
+            android:permission="${applicationId}.START_STOP_TASKBAR"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.farmerbb.taskbar.TOGGLE_FREEFORM_MODE"/>
