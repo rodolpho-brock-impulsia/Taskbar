@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Manifesto base vazio.
-
-     O AGP exige que o source set 'main' tenha um manifesto, mas cada variante deste
-     projeto traz o seu proprio: 'playstore' para as variantes free e paid, 'androidx86'
-     para a variante da farm. Os manifestos de flavor sao mesclados por cima deste, entao
-     manter este arquivo vazio faz o manifesto do flavor valer sozinho. -->
-
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" />
