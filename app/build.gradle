@@ -101,6 +101,19 @@ android {
         }
     }
 
+    // O upstream decide "sou a variante Android-x86?" comparando getPackageName() com
+    // BuildConfig.ANDROIDX86_APPLICATION_ID, em oito pontos do codigo. Como este fork usa
+    // applicationId proprio, a comparacao falhava e o app tentava habilitar componentes que
+    // so existem no manifesto do playstore, quebrando a MainActivity com
+    // "Component class ...SecondaryHomeActivity does not exist". Apontar a constante para o
+    // applicationId real da variante conserta os oito de uma vez, sem editar o codigo.
+    applicationVariants.all { variant ->
+        if(variant.flavorName == "androidx86") {
+            variant.buildConfigField "String", "ANDROIDX86_APPLICATION_ID",
+                    "\"${variant.applicationId}\""
+        }
+    }
+
     flavorDimensions "default"
 
     productFlavors {
